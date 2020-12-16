@@ -7,7 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("./test.js") //テスト用
 
 import 'bootstrap';
 import '../stylesheets/application';
