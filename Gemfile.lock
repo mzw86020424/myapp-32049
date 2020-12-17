@@ -211,6 +211,10 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    thumbalizr (1.0.1)
+      url
+    thumbalizr-rails (1.0.0)
+      thumbalizr
     tilt (2.0.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -218,6 +222,7 @@ GEM
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
+    url (0.3.2)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -261,6 +266,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  thumbalizr-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
