@@ -1,0 +1,4 @@
+<% @zines.each do |zine| %>
+  <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id), class: '' %>
+  <br>
+<% end %>

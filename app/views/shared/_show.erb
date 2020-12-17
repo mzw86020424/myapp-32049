@@ -14,7 +14,7 @@
   <div>
     <div class="sortable row">
     <% @posts.each_with_index do |post,i| %>
-      <div class="col-md-6 content-post" id="<%=i%>">
+      <div class="col-md-6 content-post rounded" id="<%=i%>">
       <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank"%>
       </div>
     <% end %> 
