@@ -1,6 +1,7 @@
 <style>
   .col-md-6 {
-    border: solid 1px black;
+    /* border: solid 1px black; */
+    margin:5px 0 
   }
   .col-md-6 img {
     object-fit: contain;
@@ -14,7 +15,7 @@
   <div>
     <div class="sortable row">
     <% @posts.each_with_index do |post,i| %>
-      <div class="col-md-6 content-post rounded" id="<%=i%>">
+      <div class="col-md-6 content-post rounded shadow" id="<%=i%>">
       <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank"%>
       </div>
     <% end %> 
