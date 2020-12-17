@@ -45,21 +45,24 @@
   }
 </style>
 
-<form class="form-signin text-center">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="form-signin text-center">
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%= devise_error_messages! %>
 
     <img class="mb-4" src="public/images/logo.png" alt="image" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    
-    <%= f.label :email, class:'sr-only' %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control', placeholder:'Email address' %>
-    
+    <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+
+    <%= f.label :email, class:'sr-only' %><br />
+    <%= f.email_field :email, class:'form-control', placeholder: 'email' %>
+
     <%= f.label :password, class:'sr-only' %>
-    <%= f.password_field :password, autocomplete: "current-password", class:'form-control', placeholder:'Password' %>
-    
-    <%= f.submit "Log in", class: 'btn btn-lg btn-primary btn-block'%>
-  <h3 class="h5 mb-3 font-weight-normal">
-    <%= render "devise/shared/links" %>
-  </h3>
+    <%= f.password_field :password, autocomplete: "off", class:'form-control', placeholder: "password (#{@minimum_password_length} characters minimum)" %>
+
+    <%= f.submit "Sign in", class: 'btn btn-lg btn-primary btn-block'%>
+
+    <div class="actions">
+       <h2>初めての方はこちら</h2>
+        <%= link_to "新規登録ページへ", new_user_registration_path, class: 'btn'%>
+    </div>
   <% end %>
-</form>
+</div>
