@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @zine = Zine.create(zine_params)
     end
     @post = Post.new
-    @posts = Post.where(user_id: current_user.id).where(month: t.month).where(year: t.year)
+    @posts = Post.where(user_id: current_user.id).where(month: t.month).where(year: t.year).order("created_at DESC")
   end
   
   def create
