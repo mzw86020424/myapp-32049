@@ -41,7 +41,10 @@
 <%# sortable %>
 <script type="text/javascript">
 $(function() {
-    $(".sortable").sortable();
+    $(".sortable").sortable({
+          delay: 900,
+          scroll: true,
+        });
     $(".sortable").disableSelection();
     $(".sortable").sortable({
         update: function(ev, ui) {
