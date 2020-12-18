@@ -1,12 +1,16 @@
 <style>
-html {  /* -webkit-overflow-scrolling: touch; */
-  overflow: scroll; /* ここのscrollが効かない */
-  height: 100vh; /* これを追加 */
-}
-.col-md-6 {
-    /* border: solid 1px black; */
+
+  .col-md-6 {
     margin:5px 0 
+    position: relative;
   }
+  svg {
+    position: absolute;
+    left: 10;
+    height: 10%;
+    width: 10%;
+  }
+
   .col-md-6 img {
     width:100%;
     max-width: 100%;
@@ -21,8 +25,11 @@ html {  /* -webkit-overflow-scrolling: touch; */
   <div>
     <div class="sortable row">
     <% @posts.each_with_index do |post,i| %>
-      <div class="col-md-6 content-post rounded shadow" id="<%=i%>">
-        <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank"%>
+      <div class="col-md-6 content-post rounded shadow text-danger" id="<%=i%>">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>
+        </svg>
+        <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank", class: 'link' %>
       </div>
     <% end %> 
     </div>
@@ -45,16 +52,6 @@ html {  /* -webkit-overflow-scrolling: touch; */
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 
-
-<script type="text/javascript">
-function return_scroll() {
-    // PCでのスクロール禁止解除
-    document.removeEventListener("mousewheel", scroll_control, { passive: false });
-    // スマホでのタッチ操作でのスクロール禁止解除
-    document.removeEventListener('touchmove', scroll_control, { passive: false });
-    }
-</script>
-
 <%# sortable %>
 <script type="text/javascript">
 $(function() {
@@ -63,6 +60,7 @@ $(function() {
           delay: 900,
           scroll: true,
           cursor: "move",
+          handle: 'svg',
           tolerance: "pointer"
         });
     $(".sortable").disableSelection();
