@@ -1,4 +1,11 @@
+<%# 共通ヘッダー %>
+<%= render "shared/header" %>
+
+<ul class="list-group">
 <% @zines.each do |zine| %>
-  <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id), class: '' %>
+  <li>
+    <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id), class: 'list-group-item' %>
+  </li>
   <br>
 <% end %>
+</ul>
