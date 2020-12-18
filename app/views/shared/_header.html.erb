@@ -40,7 +40,7 @@
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"%>
       </li>
     </ul>
-          <div class="form-inline mt-2 mt-md-0">
+      <div class="form-inline mt-2 mt-md-0">
         <%= form_with model: @post, local: true do |f| %>
           <%= f.url_field :url, class: 'form-control mr-sm-2', placeholder: 'URL' %>
           <%= f.submit '保存', class: 'btn btn-outline-success my-0 my-sm-0' %>
