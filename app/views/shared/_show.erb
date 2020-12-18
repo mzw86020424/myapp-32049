@@ -44,7 +44,8 @@ $(function() {
     $(".sortable").sortable({
           delay: 900,
           scroll: true,
-          placeholder: "ui-state-highlight"
+          cursor: "move",
+          tolerance: "pointer"
         });
     $(".sortable").disableSelection();
     $(".sortable").sortable({
