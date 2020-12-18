@@ -41,6 +41,7 @@
         <%= image_tag current_user.image, class: 'header-avatar rounded-circle', width: '30', height: '30' %>
         </a>
         <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
+          <h6 class="dropdown-header"><%= current_user.nickname %></h6>
           <button class="dropdown-item">
           <%= link_to "編集", edit_user_registration_path %>
           </button>
