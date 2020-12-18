@@ -8,9 +8,10 @@ class PostsController < ApplicationController
       @zine = Zine.create(zine_params)
     end
     @post = Post.new
-    @posts = Post.where(user_id: current_user.id).where(month: t.month).where(year: t.year).order("created_at DESC")
+    @posts = Post.where(user_id: current_user.id).where(month: t.month).where(year: t.year).order('created_at DESC')
+    @zines = Zine.where(user_id: current_user.id)
   end
-  
+
   def create
     t = Time.new
     @zine = Zine.where(month: t.month).where(year: t.year).where(user_id: current_user.id)
@@ -23,14 +24,14 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def zine_params
     t = Time.new
-    params.permit(:release).merge(user_id: current_user.id, month: t.month, year: t.year) 
+    params.permit(:release).merge(user_id: current_user.id, month: t.month, year: t.year)
   end
-  
+
   def post_params
     t = Time.new
-    params.require(:post).permit(:url).merge(user_id: current_user.id, month:t.month, year:t.year, zine_id: @zine.ids[0])
-  end 
+    params.require(:post).permit(:url).merge(user_id: current_user.id, month: t.month, year: t.year, zine_id: @zine.ids[0])
+  end
 end

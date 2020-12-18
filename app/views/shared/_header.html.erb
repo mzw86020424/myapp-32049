@@ -3,29 +3,44 @@
     min-height: 75rem;
     padding-top: 4.5rem;
   }
+  .dropdown-toggle {
+     position:relative;
+  }
+  .dropdown-menu {
+  position:absolute;
+  }
+
 </style>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Fixed navbar</a>
+  <%= link_to "GEKKAN MY GAZINE", root_path, class: 'navbar-brand'%>
+  <%= image_tag current_user.image, class: 'header-avatar rounded-circle', width: '30', height: '30' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <%#= image_tag current_user.image, class: 'header-avatar' %>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <% if @zine != nil %>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%=@zine.year %>年<%=@zine.month %>月号
+        </a>
+        <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
+              <% @zines.each do |zine| %>
+          <button class="dropdown-item" href="#">
+            <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id)%>
+          </button>
+              <% end %>
+        </div>
       </li>
+      <% end %>
       <li class="nav-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"%>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
     </ul>
-          <div class="form-inline mt-2 mt-md-0">
+      <div class="form-inline mt-2 mt-md-0">
         <%= form_with model: @post, local: true do |f| %>
           <%= f.url_field :url, class: 'form-control mr-sm-2', placeholder: 'URL' %>
           <%= f.submit '保存', class: 'btn btn-outline-success my-0 my-sm-0' %>
