@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :posts
   root "posts#index"
   resources :zines
+  resources :users, only: [:edit, :update]
 end
