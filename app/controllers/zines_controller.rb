@@ -3,6 +3,7 @@ class ZinesController < ApplicationController
     @zines = Zine.where(user_id: current_user.id)
   end
   def show
+    @zines = Zine.where(user_id: current_user.id)
     @zine = Zine.find(params[:id])
     @posts = Post.where(user_id: current_user.id).where(month: @zine.month).where(year: @zine.year)
   end

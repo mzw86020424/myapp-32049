@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     end
     @post = Post.new
     @posts = Post.where(user_id: current_user.id).where(month: t.month).where(year: t.year).order("created_at DESC")
+    @zines = Zine.where(user_id: current_user.id)
   end
   
   def create

@@ -1,11 +1,22 @@
 <%# 共通ヘッダー %>
 <%= render "shared/header" %>
 
-<ul class="list-group">
-<% @zines.each do |zine| %>
-  <li>
-    <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id), class: 'list-group-item' %>
-  </li>
-  <br>
-<% end %>
-</ul>
+<div class="dropdown">
+  <button type="button" id="dropdown1"
+      class="btn btn-secondary dropdown-toggle"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdown1">
+    <% @zines.each do |zine| %>
+     <a class="dropdown-item" href="#">
+      <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id)%>
+     </a>
+     <% end %>
+  </div>
+</div>
+
+
+  
