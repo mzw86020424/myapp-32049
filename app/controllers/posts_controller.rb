@@ -17,9 +17,9 @@ class PostsController < ApplicationController
     @zine = Zine.where(month: t.month).where(year: t.year).where(user_id: current_user.id)
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     else
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -32,6 +32,6 @@ class PostsController < ApplicationController
 
   def post_params
     t = Time.new
-    params.require(:post).permit(:url).merge(user_id: current_user.id, month: t.month, year: t.year, zine_id: @zine.ids[0])
+    params.permit(:url).merge(user_id: current_user.id, month: t.month, year: t.year, zine_id: @zine.ids[0])
   end
 end
