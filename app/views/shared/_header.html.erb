@@ -25,18 +25,28 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <% if @zine != nil %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%=@zine.year %>年<%=@zine.month %>月号
-        </a>
-        <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
-              <% @zines.each do |zine| %>
-          <button class="dropdown-item" href="#">
-            <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id)%>
-          </button>
-              <% end %>
-        </div>
-      </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if current_page?("/zines") %>
+              公開マガジン一覧
+            <% elsif current_user == @zine.user %>
+              <%=@zine.year %>年<%=@zine.month %>月号
+            <% else %>
+              <%=@zine.user.nickname %>さんの<br>
+              <%=@zine.year %>年<%=@zine.month %>月号
+            <% end %>
+          </a>
+          <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item  bg-dark text-light" href="/zines">
+              公開マガジン一覧
+            </a>
+            <% @zines.each do |zine| %>
+              <button class="dropdown-item bg-dark text-light" href="#">
+                <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id), class: 'text-light'%>
+              </button>
+            <% end %>
+          </div>
+        </li>
       <% end %>
 
       <li class="nav-item dropdown">

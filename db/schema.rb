@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_051755) do
   end
 
   create_table "zines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "release", default: false, null: false
+    t.boolean "private", default: true, null: false
     t.string "year", null: false
     t.string "month", null: false
     t.bigint "user_id", null: false
