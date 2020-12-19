@@ -24,27 +24,29 @@
 
 <body class="container-fluid">
 
+<% if current_user == @zine.user %>
 <p>
   <strong>PRIVATE</strong>
     <%= check_box_tag 'zine[private]', true, @zine.private, {
-        onchange: '$(this).data("params", "zine[private]=" + this.checked)',
+      onchange: '$(this).data("params", "zine[private]=" + this.checked)',
         data: {
-            url: zine_url + '/user_private/',
+          url: zine_url + '/user_private/',
             method: :post,
             remote: true
         }
     } %>
-
 </p>
+<% end %>
 
   <div>
     <div class="sortable row">
     <% @posts.each_with_index do |post,i| %>
       <div class="col-md-6 content-post rounded shadow text-danger" id="<%=i%>">
+      <% if current_user == @zine.user %>
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>
-        </svg>
-        
+        </svg> 
+      <% end %>
         <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank", class: 'link' %>
       </div>
     <% end %> 
