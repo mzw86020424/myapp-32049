@@ -13,6 +13,10 @@ class ZinesController < ApplicationController
   @zine.save #ここでuser_params使わないの？？？
 end
 
+def index
+  @zines = Zine.where(private: false)
+end
+
 private
 def user_params
     params.require(:zine).permit(:private)
