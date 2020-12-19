@@ -5,7 +5,7 @@ class ZinesController < ApplicationController
     @zines = Zine.where(user_id: current_user.id)
     @zine = Zine.find(params[:id])
     @post = Post.new
-    @posts = Post.where(user_id: current_user.id).where(month: @zine.month).where(year: @zine.year)
+    @posts = @zine.posts
   end
 
 end
