@@ -7,9 +7,7 @@ class PostsController < ApplicationController
       @zine = Zine.new
       @zine = Zine.create(zine_params)
     end
-    @post = Post.new
-    @posts = Post.where(user_id: current_user.id).where(month: t.month).where(year: t.year).order('created_at DESC')
-    @zines = Zine.where(user_id: current_user.id)
+    redirect_to controller: :zines, action: :show, id: @zine.id
   end
 
   def create
