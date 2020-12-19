@@ -23,6 +23,20 @@
 </style>
 
 <body class="container-fluid">
+
+<p>
+  <strong>PRIVATE</strong>
+    <%= check_box_tag 'zine[private]', true, @zine.private, {
+        onchange: '$(this).data("params", "zine[private]=" + this.checked)',
+        data: {
+            url: zine_url + '/user_private/',
+            method: :post,
+            remote: true
+        }
+    } %>
+
+</p>
+
   <div>
     <div class="sortable row">
     <% @posts.each_with_index do |post,i| %>
