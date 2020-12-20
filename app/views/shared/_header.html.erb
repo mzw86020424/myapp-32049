@@ -13,23 +13,27 @@
   border: none;
   }
   .create {
-    background: linear-gradient(-135deg, #4545e6, #8a25b1);
-    border: none;
+    color:white ;
+    background: #47BBBF;
+    border: 1px solid #47BBBF;
   } 
+  /* li {
+    background-color:#024873;
+  } */
 </style>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top shadow" style="background-color:#BFBFBF">
   <%= link_to image_tag("/assets/logo.png", width: '200', alt: "logo"),  root_path, class: 'navbar-brand'%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon" ></span>
   </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse"  id="navbarCollapse">
+    <ul class="navbar-nav mr-auto" >
       <% if @zine != nil %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             <% if current_page?("/zines") %>
               公開マガジン一覧
             <% elsif current_user == @zine.user %>
@@ -39,12 +43,12 @@
               <%=@zine.year %>年<%=@zine.month %>月号
             <% end %>
           </a>
-          <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item  bg-dark text-light" href="/zines">
+          <div class="dropdown-menu text-light" style="background-color:#BFBFBF" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-light" href="/zines">
               公開マガジン一覧
             </a>
             <% @zines.each do |zine| %>
-              <button class="dropdown-item bg-dark text-light" href="#">
+              <button class="dropdown-item text-light" href="#">
                 <%= link_to "#{zine.year}年#{zine.month}月号", zine_path(zine.id), class: 'text-light'%>
               </button>
             <% end %>
@@ -56,7 +60,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= image_tag current_user.image, class: 'header-avatar rounded-circle', width: '30', height: '30' %>
         </a>
-        <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu text-light" style="background-color:#BFBFBF" aria-labelledby="navbarDropdownMenuLink">
           <h6 class="dropdown-header"><%= current_user.nickname %></h6>
           <button class="dropdown-item">
           <%= link_to "編集", edit_user_registration_path %>
@@ -76,7 +80,7 @@
       <div class="form-inline mt-2 mt-md-0">
         <%= form_with url: "/posts", method: :post, local: true do |f| %>
           <%= f.url_field :url, class: 'form-control mr-sm-2', placeholder: 'URL' %>
-          <%= f.submit 'scrap!', class: 'btn btn-success my-0 my-sm-0 create' %>
+          <%= f.submit 'SCRAP!', class: 'btn btn-success my-0 my-sm-0 create shadow' %>
         <% end %>
       </div>
   </div>
