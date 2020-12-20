@@ -27,7 +27,7 @@
 <% if current_user == @zine.user %>
 <p>
   <strong>PRIVATE</strong>
-    <%= check_box_tag 'zine[private]', true, @zine.private, {
+    <%= check_box_tag 'zine[private]', true, @zine[:private], {
       onchange: '$(this).data("params", "zine[private]=" + this.checked)',
         data: {
           url: zine_url + '/user_private/',
