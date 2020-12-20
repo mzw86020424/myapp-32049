@@ -12,11 +12,14 @@
   .dropdown-menu {
   border: none;
   }
-
+  .create {
+    background: linear-gradient(-135deg, #4545e6, #8a25b1);
+    border: none;
+  } 
 </style>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <%= link_to image_tag("/assets/logo.png", width: '100', alt: "logo"),  root_path, class: 'navbar-brand'%>
+  <%= link_to image_tag("/assets/logo.png", width: '200', alt: "logo"),  root_path, class: 'navbar-brand'%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -73,7 +76,7 @@
       <div class="form-inline mt-2 mt-md-0">
         <%= form_with url: "/posts", method: :post, local: true do |f| %>
           <%= f.url_field :url, class: 'form-control mr-sm-2', placeholder: 'URL' %>
-          <%= f.submit '保存', class: 'btn btn-outline-success my-0 my-sm-0' %>
+          <%= f.submit 'scrap!', class: 'btn btn-outline-success my-0 my-sm-0 create' %>
         <% end %>
       </div>
   </div>
