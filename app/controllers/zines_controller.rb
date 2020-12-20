@@ -10,7 +10,7 @@ class ZinesController < ApplicationController
   def user_private
   @zine = Zine.find(params[:id])
   @zine[:private] = !@zine[:private] # privates でなく private かも
-  @zine.save #ここでuser_params使わないの？？？
+  @zine.save[user_params] #ここでuser_params使わないの？？？
 end
 
 def index
