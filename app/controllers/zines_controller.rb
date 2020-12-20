@@ -14,7 +14,7 @@ class ZinesController < ApplicationController
 end
 
 def index
-  @zines = Zine.where(private: false)
+  @zines = Zine.where(private: false).order(created_at: :desc)
 end
 
 private
