@@ -81,8 +81,8 @@
     </ul>
       <div class="form-inline mt-2 mt-md-0">
         <%= form_with url: "/posts", method: :post, local: true do |f| %>
-          <%= f.url_field :url, class: 'form-control mr-sm-2', placeholder: 'URL' %>
-          <%= f.submit 'SCRAP!', class: 'btn btn-success my-0 my-sm-0 create shadow' %>
+          <%= f.url_field :url, class: 'form-control mr-sm-2 font-italic', placeholder: 'URL' %>
+          <%= f.submit 'SCRAP!', class: 'btn btn-success my-0 my-sm-0 create shadow  font-weight-bold font-italic' %>
         <% end %>
       </div>
   </div>
