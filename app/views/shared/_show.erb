@@ -1,6 +1,6 @@
 <style>
 
-  .col-md-6 {
+  .col-lg-6 {
     margin:5px 0 
     position: relative;
   }
@@ -12,7 +12,7 @@
     z-index:10;
   }
 
-  .col-md-6 img {
+  .col-lg-6 img {
     width:100%;
     max-width: 100%;
     height: auto;
@@ -65,20 +65,20 @@
   <div class="container-frueid kanban align-items-center">
   
     <div class="row align-items-center no-gutters font-weight-bold font-italic" style="height:250px;">
-      <div class="display-4 col-md-4 text-center">ようこそ</div>
-      <div class="col-md-4 text-center">
+      <div class="display-4 col-lg-4 text-center">ようこそ</div>
+      <div class="col-lg-4 text-center">
         <%= image_tag '/assets/logo_big.png', style: 'width:200px;'%>
       </div>
-      <div class="display-4 col-md-4 text-center">　へ。</div>
+      <div class="display-4 col-lg-4 text-center">　へ。</div>
     </div>
   
     <div class="row align-items-center no-gutters font-weight-bold font-italic"style="height:200px;">
-      <div class="h3 col-md text-center">操作は簡単、４ステップ！</div>
+      <div class="h3 col-lg text-center">操作は簡単、４ステップ！</div>
     </div>
 
     <div div class="row align-items-center no-gutters font-weight-bold" style="height:300px;">
     
-      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+      <div class="howto col-lg-6 col-lg-3 h-100 w-100 text-center">
         <div class="h1">
         1. COPY
         </div>
@@ -90,7 +90,7 @@
         </div>
       </div>
       
-      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+      <div class="howto col-lg-6 col-lg-3 h-100 w-100 text-center">
         <div class="h1">
         2. PASTE
         </div>
@@ -102,7 +102,7 @@
         </div>
       </div>
 
-      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+      <div class="howto col-lg-6 col-lg-3 h-100 w-100 text-center">
         <div class="h1">
         3. SAVE
         </div>
@@ -114,7 +114,7 @@
         </div>
       </div>
 
-      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+      <div class="howto col-lg-6 col-lg-3 h-100 w-100 text-center">
         <div class="h1">
         4. SORT
         </div>
@@ -134,7 +134,7 @@
   <div>
     <div class="sortable row">
     <% @posts.each_with_index do |post,i| %>
-      <div class="col-md-6 content-post rounded shadow img_wrap" style="color:#47BBBF;" id="<%=i%>">
+      <div class="col-lg-6 content-post rounded shadow img_wrap" style="color:#47BBBF;" id="<%=i%>">
       <% if current_user == @zine.user %>
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>
