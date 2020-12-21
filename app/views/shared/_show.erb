@@ -13,7 +13,7 @@
   }
 
   .col-md-6 img {
-    /* width:100%; */
+    width:100%;
     max-width: 100%;
     height: auto;
   }
@@ -33,24 +33,103 @@
     opacity: 0.6;
     transition-duration: 0.5s;
   }
+  .kanban {
+    height:100vh;
+  }
+
+  .howto {
+    margin-bottom:150px;
+  }
 
 </style>
 
-<body class="container-fluid">
 
-<% if current_user == @zine.user %>
-<p>
-  <strong>PRIVATE</strong>
-    <%= check_box_tag 'zine[private]', true, @zine[:private], {
-      onchange: '$(this).data("params", "zine[private]=" + this.checked)',
-        data: {
-          url: zine_url + '/user_private/',
-            method: :post,
-            remote: true
-        }
-    } %>
-</p>
-<% end %>
+
+<body class="container-frueid align-items-center">
+  <% if current_user == @zine.user && !@zine.posts.empty?%>
+    <p>
+      <strong>PRIVATE</strong>
+        <%= check_box_tag 'zine[private]', true, @zine[:private], {
+          onchange: '$(this).data("params", "zine[private]=" + this.checked)',
+            data: {
+              url: zine_url + '/user_private/',
+                method: :post,
+                remote: true
+            }
+        } %>
+    </p>
+  <% end %>
+
+  <% if @zine.posts.empty? %>
+
+  <div class="container-frueid kanban align-items-center">
+  
+    <div class="row align-items-center no-gutters font-weight-bold font-italic" style="height:250px;">
+      <div class="display-4 col-md-4 text-center">ようこそ</div>
+      <div class="col-md-4 text-center">
+        <%= image_tag '/assets/logo_big.png', style: 'width:200px;'%>
+      </div>
+      <div class="display-4 col-md-4 text-center">　へ。</div>
+    </div>
+  
+    <div class="row align-items-center no-gutters font-weight-bold font-italic"style="height:200px;">
+      <div class="h3 col-md text-center">操作は簡単、４ステップ！</div>
+    </div>
+
+    <div div class="row align-items-center no-gutters font-weight-bold" style="height:300px;">
+    
+      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+        <div class="h1">
+        1. COPY
+        </div>
+        <div class="h-100 d-flex align-items-center justify-content-center">
+          <%= image_tag '/assets/copy.png', style: 'width:150px;', class: ''%>
+        </div>
+        <div class="h6">
+        好きなページのURLをコピー。
+        </div>
+      </div>
+      
+      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+        <div class="h1">
+        2. PASTE
+        </div>
+        <div class="h-100 d-flex align-items-center justify-content-center">
+          <%= image_tag '/assets/paste.png', style: 'width:150px;', class: ''%>
+        </div>
+        <div class="h6">
+        それをURL欄に貼り付け。
+        </div>
+      </div>
+
+      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+        <div class="h1">
+        3. SAVE
+        </div>
+        <div class="h-100 d-flex align-items-center justify-content-center">
+          <%= image_tag '/assets/scrap.png', style: 'width:200px;', class: ''%>
+        </div>
+        <div class="h6">
+        "SCRAP!"ボタンで保存完了！
+        </div>
+      </div>
+
+      <div class="howto col-md-6 col-lg-3 h-100 w-100 text-center">
+        <div class="h1">
+        4. SORT
+        </div>
+        <div class="h-100 d-flex align-items-center justify-content-center">
+          <%= image_tag '/assets/sort.png', style: 'width:200px;', class: ''%>
+        </div>
+        <div class="h6">
+        しおりを掴んでSCRAPの並び替えも。
+        </div>
+      </div>
+
+    </div>  
+  </div>
+
+  <% end %>
 
   <div>
     <div class="sortable row">
