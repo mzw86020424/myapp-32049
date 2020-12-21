@@ -30,6 +30,21 @@
     left:0;
     top:0;
   }
+  .img_wrap{
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+.img_wrap img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.img_wrap:hover img{
+  transform: scale(1.2);
+  opacity: 0.6;
+  transition-duration: 0.5s;
+}
   </style>
 </head>
 <body>
@@ -43,7 +58,7 @@
         <div class="row"> 
           <% @zines.each do |zine| %>
               <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm img_wrap">
                   <%= link_to zine_path(zine.id) do %>
                     <%=  image_tag zine.user.image, class:'card-img-top', width: '100%', height: '225'%>
                       <div class="card-text d-flex align-items-center justify-content-center text-white font-weight-bold font-italic">
