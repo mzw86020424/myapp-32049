@@ -27,7 +27,7 @@
   display: block;
   width: 60px;
   margin-top: 5px;
-  border-bottom: 1px solid #38aef0;
+  border-bottom: 1px solid #47BBBF;
 }
 .account-page .account-page__header h5 {
   margin-bottom: 20px;
@@ -114,9 +114,11 @@
   font-size: 13px;
 }
 
-.create {
-  color: #8C7242;
-}
+  .create {
+    color:white ;
+    background: #47BBBF;
+    border: 1px solid #47BBBF;
+  } 
 
 </style>
 
@@ -147,8 +149,8 @@
               <%= f.password_field :password, autocomplete: "off"%>
             </div>
           </div>
-          <div class='actions' style="background-color:#8C7242">
-            <%= f.submit "Log in", class: 'btn create'%>
+          <div class='actions'>
+            <%= f.submit "Log in", class: 'btn', style: 'background-color:#47BBBF'%>
           </div>
         </div>
       <% end %>
