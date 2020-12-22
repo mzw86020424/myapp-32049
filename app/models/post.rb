@@ -2,5 +2,8 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :zine
 
-  validates :url, presence: true
+  with_options presence: true do
+    validates :year, :month
+    validates :url, uniqueness: true
+  end
 end
