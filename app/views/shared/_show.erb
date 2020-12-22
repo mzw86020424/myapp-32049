@@ -11,7 +11,14 @@
     width: 10%;
     z-index:10;
   }
-
+  .trashcan img{
+    position: absolute;
+    width:30px;
+    bottom:20px;
+    right:20px;
+    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+    z-index:10;
+  }
   .col-lg-6 img {
     width:100%;
     max-width: 100%;
@@ -23,7 +30,7 @@
     overflow: hidden;
     z-index:0;
   }
-  .img_wrap img{
+  .img_wrap .thumb img{
     width: 100%;
     transition-duration: 0.5s;
   }
@@ -138,8 +145,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"/>
         </svg> 
+          <%= link_to image_tag("/assets/trashcan.png"), post_path(post.id), method: :delete, class: 'trashcan'%>
       <% end %>
-        <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank", class: 'link' %>
+      <%= link_to image_tag(thumbalizr_url(post.url, {:country => 'ja', :width =>  960})), post.url, :target => "_blank", class: 'link thumb' %>
       </div>
     <% end %> 
     </div>
