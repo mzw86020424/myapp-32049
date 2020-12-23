@@ -4,6 +4,6 @@ class Post < ApplicationRecord
 
   with_options presence: true do
     validates :year, :month
-    validates :url, uniqueness: true
+    validates :url
   end
 end

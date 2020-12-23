@@ -3,7 +3,7 @@ class ZinesController < ApplicationController
     @zines = Zine.where(user_id: current_user.id)
     @zine = Zine.find(params[:id])
     @post = Post.new
-    @posts = @zine.posts
+    @posts = @zine.posts.order("created_at DESC")
   end
 
   def user_private
