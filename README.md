@@ -14,6 +14,12 @@ https://my-app-32049.herokuapp.com/
 <br>
 <br>
 
+# BASIC認証
+- ID：`admin`
+- PASS：`1234`
+<br>
+<br>
+
 # テスト用アカウント	
 - nickname：`taro`
 - email：`taro@test`
