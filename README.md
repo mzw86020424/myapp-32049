@@ -10,7 +10,7 @@ GEKKAN MYSCRAP（月刊マイスクラップ）
 <br>
 
 # URL	
-https://my-app-32049.herokuapp.com/
+http://18.189.48.203/
 <br>
 <br>
 
