@@ -69,6 +69,15 @@ http://18.189.48.203/
 <br>
 <br>
 
+# 工夫したポイント
+開発していく上でのポイントとして、ユーザーの体験にストレスがないことにプライオリティを置いて開発しました。
+具体的には、ページ遷移をできるだけ減らしたこと、また投稿までのクリック回数や手順もなるべくシンプルにしました。
+合わせて、ユーザー体験として操作自体を楽しんでもらえることも意識しました。
+目で見て楽しいように、保存したリンク先が自動でサムネになったり、ドラッグ&ドロップで直感的に並び替えができる、
+という機能は必須の機能として企画段階から想定していました。
+<br>
+<br>
+
 # 実装済み機能説明
 ## ユーザー登録
 全てのユーザーは自動でログインページに移動します。初めてのユーザーは新規登録ページに移動してユーザー登録をします。  
@@ -82,34 +91,44 @@ http://18.189.48.203/
 
 ## 新規ポスト/ポスト一覧表示
 共通ヘッダーのURL欄にURLを貼り付け「SCRAP!」ボタンを押すだけで、投稿が完了します。
-投稿したポストはスクラップブックのように、トップ画面（今月のSCRAP）に一覧表示されます。
+投稿したポストはスクラップブックのように、トップ画面（今月のSCRAP）に一覧表示されます。  
+
 ***PC操作画面***  
-![2 post_pc](https://user-images.githubusercontent.com/72555480/103012095-65243680-457e-11eb-9b7f-d782085dc865.gif)
+![2 post_pc](https://user-images.githubusercontent.com/72555480/103012095-65243680-457e-11eb-9b7f-d782085dc865.gif)  
+
 ***スマホ操作画面***  
-![2 post_sm](https://user-images.githubusercontent.com/72555480/103012120-6ead9e80-457e-11eb-9714-fa29814380e7.gif)
+![2 post_sm](https://user-images.githubusercontent.com/72555480/103012120-6ead9e80-457e-11eb-9714-fa29814380e7.gif)  
+
 ## ポスト並び替え/削除
 投稿したポストは、右上の「しおり」をドラッグ&ドロップすることで、並び替えができます。  
-また、右下の「ゴミ箱」をクリックすると、SCRAPからすぐに削除ができます。
+また、右下の「ゴミ箱」をクリックすると、SCRAPからすぐに削除ができます。  
+
 ***PC操作画面***  
-![3 drag drop_pc](https://user-images.githubusercontent.com/72555480/103012138-7705d980-457e-11eb-9c93-371cf8844f0a.gif)
+![3 drag drop_pc](https://user-images.githubusercontent.com/72555480/103012138-7705d980-457e-11eb-9c93-371cf8844f0a.gif)  
+
 ***スマホ操作画面***  
-![3 drag drop_sm](https://user-images.githubusercontent.com/72555480/103012154-7cfbba80-457e-11eb-9a80-574185394385.gif)
+![3 drag drop_sm](https://user-images.githubusercontent.com/72555480/103012154-7cfbba80-457e-11eb-9a80-574185394385.gif)  
+
 ## 月別SCRAP閲覧
 投稿した日時を元に、SCRAPは月別にアーカイブされていきます。  
-ヘッダーのプルダウンから、アーカイブしたSCRAPを見にいくことができます。
+ヘッダーのプルダウンから、アーカイブしたSCRAPを見にいくことができます。  
+
 ***PC操作画面***  
-![4 archive_pc](https://user-images.githubusercontent.com/72555480/103012499-0f03c300-457f-11eb-9cf2-1c3657056cff.gif)
+![4 archive_pc](https://user-images.githubusercontent.com/72555480/103012499-0f03c300-457f-11eb-9cf2-1c3657056cff.gif)  
+
 ***スマホ操作画面***  
-![4 archive_sm](https://user-images.githubusercontent.com/72555480/103012588-2773dd80-457f-11eb-863d-4da969bb8648.gif)
+![4 archive_sm](https://user-images.githubusercontent.com/72555480/103012588-2773dd80-457f-11eb-863d-4da969bb8648.gif)  
 
 ## 公開・非公開設定公開SCRAP一覧
 ユーザーは、自分のSCRAPの公開/非公開を選択できます。  
 公開を選んだSCRAPは、全ユーザーが閲覧できる公開SCRAP一覧に表示されます。
 公開SCRAPが、各月でユーザーごとに一覧表示されています。  
 クリックすると、それぞれのSCRAPの中身を見ることができます。  
-ユーザー本人ではない場合、公開/非公開設定機能・ポスト並び替え機能・ポスト削除機能は非表示となります。
-***PC操作画面***  
-![5 private_pc](https://user-images.githubusercontent.com/72555480/103012616-30fd4580-457f-11eb-9673-0b8536d9dbb4.gif)
+ユーザー本人ではない場合、公開/非公開設定機能・ポスト並び替え機能・ポスト削除機能は非表示となります。  
+
+***PC操作画面***
+![5 private_pc](https://user-images.githubusercontent.com/72555480/103012616-30fd4580-457f-11eb-9673-0b8536d9dbb4.gif)  
+
 ***スマホ操作画面***  
 ![5 private_sm](https://user-images.githubusercontent.com/72555480/103012633-378bbd00-457f-11eb-8611-f4353e4c46d1.gif)
 
@@ -118,7 +137,7 @@ http://18.189.48.203/
 <br>
 
 # 実装予定の機能
-要件に記載したうちの下記２点、2020/12/23現在未実装です。
+要件に記載したうちの下記２点、2021/1/4現在未実装です。
 - ライク機能
 - ソート・検索機能
 <br>
