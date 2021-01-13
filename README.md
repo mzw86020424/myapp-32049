@@ -10,7 +10,7 @@ GEKKAN MYSCRAP（月刊マイスクラップ）
 <br>
 
 # URL	
-http://18.189.48.203/
+www.gekkan-myscrap.com
 <br>
 <br>
 
